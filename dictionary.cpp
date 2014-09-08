@@ -6,14 +6,18 @@ using namespace std;
 
 
 
+
+
 bool dictionary::readDictionaryFile(const string &filename){
+
+	string word; // declares word to be used in the while ( input >> word ) loop
 
 	// read in input stream and argv gives the 
 	// the name of the file
 	ifstream input( filename.c_str() );
 
 	// return error message if file didn't open correctly
-	if (!input){
+	if ( !input ){
 
 		cout << "File did not open" << endl;
 
@@ -21,9 +25,9 @@ bool dictionary::readDictionaryFile(const string &filename){
 
 	} // end of if (!input)
 
-	string word;
+	
 	// reads words in a loop till the end of file
-	while (input >> word){
+	while ( input >> word ){
 
 		// insert words into a set
 		dictionaryWords.insert(word);
@@ -34,14 +38,27 @@ bool dictionary::readDictionaryFile(const string &filename){
 
 } // end of bool readDictionaryFile(const string &filename)
 
-bool dictionary::compareWord(const string &word){
+
+
+bool dictionary::compareWord( const string &word ){
+
+	string temporaryWord = word;
+
+	// turns the first letter and makes it lowercase and then
+	// assigns it back to the word
+	temporaryWord[0] = tolower(temporaryWord[0]);
 
 	// looks inside the set to see if the word exists
 	// return value is an iterator
-	set<string>::iterator i = dictionaryWords.find(word);
+	set<string>::iterator i = dictionaryWords.find(temporaryWord);
+
+
 
 	// determines if the iterator is valid or not
-	if (i == dictionaryWords.end()){
+	if ( i == dictionaryWords.end() ){
+
+
+		//cout << endl << endl << "inside ifstatement:  " << temporaryWord << endl << endl;
 
 		// if the word is not found return false
 		return false;
@@ -51,8 +68,7 @@ bool dictionary::compareWord(const string &word){
 
 		// return true if the iterator is valid
 		return true;
-	}
 
-
+	} // end of else
 } // end of bool dictionary::compareWord(const string &word)
 
