@@ -14,12 +14,12 @@ bool dictionary::readDictionaryFile(const string &filename){
 
 	// read in input stream and argv gives the 
 	// the name of the file
-	ifstream input( filename.c_str() );
+	ifstream input(filename.c_str());
 
 	// return error message if file didn't open correctly
-	if ( !input ){
+	if (!input){
 
-		cout << "File did not open" << endl;
+		//cout << "File did not open" << endl;
 
 		return false;
 
@@ -27,7 +27,7 @@ bool dictionary::readDictionaryFile(const string &filename){
 
 	
 	// reads words in a loop till the end of file
-	while ( input >> word ){
+	while (input >> word){
 
 		// insert words into a set
 		dictionaryWords.insert(word);
@@ -40,7 +40,7 @@ bool dictionary::readDictionaryFile(const string &filename){
 
 
 
-bool dictionary::compareWord( const string &word ){
+bool dictionary::compareWord(const string &word){
 
 	string temporaryWord = word;
 
@@ -55,7 +55,7 @@ bool dictionary::compareWord( const string &word ){
 
 
 	// determines if the iterator is valid or not
-	if ( i == dictionaryWords.end() ){
+	if (i == dictionaryWords.end()){
 
 
 		//cout << endl << endl << "inside ifstatement:  " << temporaryWord << endl << endl;
@@ -71,4 +71,17 @@ bool dictionary::compareWord( const string &word ){
 
 	} // end of else
 } // end of bool dictionary::compareWord(const string &word)
+
+void dictionary::addWord(string word){
+
+	dictionaryWords.insert(word);
+}
+
+void dictionary::saveDictionaryFile(const string& filename){
+
+	ofstream _Dictionary(filename.c_str());
+
+	copy(dictionaryWords.begin(), dictionaryWords.end(), ostream_iterator<string>(_Dictionary, "\n"));
+	
+}
 
