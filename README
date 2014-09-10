@@ -1,0 +1,32 @@
+We are planning to implement some automated test scripts to grade this assignment (and the next ones). For the automated scripts to  work perfectly, it is very important that the output format matches exactly as it was directed in the assignment description.
+
+We will check both the corrected file and terminal output.
+
+Here, we are providing a script which will run your executable on a sample input file (provided as "sampleInput.txt". For each test, a copy of it "sample.txt" will be generated and used). Also, the testscript will clean and make your project before running it.
+
+The terminal inputs will be provided from a file as well ("terminalInput.txt").
+
+The terminal output will be directed to a file "terminalOutput.txt".
+
+As per direction, your programs is expected to overwrite the input file ("sample.txt") to correct it.
+
+When the test is done, the script will check diff between ("terminalOutput.txt" and "terminalOutputExpected.txt") and ("sample.txt" and "outputExpected.txt"). If everything goes is right, the files will be identical. If there are any differences, you should check "terminalOutput.txt" and "sample.txt" along with the expected outputs to find the source of the mismatch.
+
+## IMPORTANT ##
+For the script to work properly, you should not add any extra text or formatting in your output. Please check the "terminalOutputExpected.txt" file to get an idea on what is expected.
+
+## Provided files:
+1. outputExpected.txt
+2. runTest
+3. sampleInput.txt
+4. terminalInput.txt
+5. terminalOutputExpected.txt
+6. README
+
+## How to run:
+1. Copy the provided test files in the same folder where your source files are.
+2. Change permission of the testscript: "chmod 755 runTest"
+3. Run the test by simply typing "runTest"
+4. runTest will delete the old object files and executable; and make the project again by running the makeFile. After that,it will perform the testing.
+
+For grading, we may use some additional set of sample input/output. However, if your code works for this sample testscript,you can expect it to pass our tests as well. Good luck!

@@ -16,6 +16,7 @@ public:
 	bool compareWord(const string &word);               // use bool so that true false is returned if the word is spelled correctly
 	void addWord(string);                               // add a new word to the user dictionary
 	void saveDictionaryFile(const string& filename);
+	//**************************** save dictionary file userDictSave****************************************************//
 
 private:
 	
